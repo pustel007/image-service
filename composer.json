@@ -1,0 +1,22 @@
+{
+    "name": "pustel007/image-service",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Pustel007",
+            "email": "pustel@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Pustel007\\ImageService\\": "src/",
+            "Pustel007\\ImageService\\Tests\\": "tests/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.0"
+    },
+    "require": {
+        "intervention/image": "^2.7"
+    }
+}
