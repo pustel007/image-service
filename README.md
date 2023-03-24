@@ -18,24 +18,27 @@ The services outputs images in the same file format (e.g. jpg) as they have been
 
 Simple HTML-page containing gallery of images is prepared and includes source and modified images.
 
+=====
 
-# Installation
+## Installation
 
 `docker compose up -d`
+
 `docker compose exec php composer install`
+
 `docker compose exec php chmod 777 public/images`
 
 
-# Example usage
+## Example usage
 
 You want to retrieve image "one.jpg" in the size of 200px height and 200px width and blur it.
-The original image on the server has the following dimensions: 600px height, 800px width
+The original image on the server has the following dimensions: 600px height, 800px width.
 
-You trigger retrieving the image by using an url like: 
-   http://localhost:8086/one.jpg/?mod=resize.200.200&mod=blur.3
+You trigger retrieving the image by using an url like:
+- `http://localhost:8086/one.jpg/?mod=resize.200.200&mod=blur.3`
 
-You will get redirected to: 
-   http://localhost:8086/images/one.resize.200.200.jpg
+You will get redirected to:
+- `http://localhost:8086/images/one.resize.200.200.jpg`
 
 All the images are available in gallery:
-   http://localhost:8086/gallery
+- `http://localhost:8086/gallery`
