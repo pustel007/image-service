@@ -22,11 +22,6 @@ final class ImageProcessor implements ImageProcessorInterface
         $this->modifiers = [];
     }
 
-    public function loadImage(string $filename): void
-    {
-        $this->image = $this->imageRepository->findByName($filename);
-    }
-
     public function addModifier(ModifierInterface $modifier): self
     {
         $this->modifiers[] = $modifier;
@@ -34,15 +29,14 @@ final class ImageProcessor implements ImageProcessorInterface
         return $this;
     }
 
-    public function processImage(): void
+    public function processImage(string $filename): void
     {
+        $this->image = $this->imageRepository->findByName($filename);
+
         foreach ($this->modifiers as $modifier) {
             $modifier->modify($this->image);
         }
-    }
 
-    public function storeImage(): void
-    {
         $this->imageRepository->save($this->image);
     }
 

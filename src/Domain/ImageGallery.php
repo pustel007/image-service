@@ -17,14 +17,11 @@ class ImageGallery implements ImageGalleryInterface
         $this->images = [];
     }
 
-    public function loadAllImages(): void
+    /** @return Image[] */
+    public function getAllImages(): array
     {
         $this->images = $this->imageRepository->findAll();
-    }
 
-    /** @return Image[] */
-    public function getImages(): array
-    {
         return $this->images;
     }
 }

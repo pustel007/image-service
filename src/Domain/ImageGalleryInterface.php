@@ -8,7 +8,5 @@ interface ImageGalleryInterface
 {
     public function __construct(ImageRepositoryInterface $imageRepository);
 
-    public function loadAllImages(): void;
-
-    public function getImages(): array;
+    public function getAllImages(): array;
 }

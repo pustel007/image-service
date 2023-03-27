@@ -11,13 +11,9 @@ interface ImageProcessorInterface
 {
     public function __construct(ImageRepositoryInterface $imageRepository);
 
-    public function loadImage(string $imageName): void;
-    
     public function addModifier(ModifierInterface $modifier): self;
     
-    public function processImage(): void;
+    public function processImage(string $imageName): void;
     
-    public function storeImage(): void;
-
     public function getImage(): ?Image;
 }
