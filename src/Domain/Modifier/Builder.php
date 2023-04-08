@@ -8,18 +8,11 @@ final class Builder
 {
     public static function build(string $modifierName, array $modifierArgs): ModifierInterface
     {
-        switch ($modifierName) {
-            case 'crop':
-                return new CropModifier(...$modifierArgs);
-                break;
-            case 'resize':
-                return new ResizeModifier(...$modifierArgs);
-                break;
-            case 'blur':
-                return new BlurModifier(...$modifierArgs);
-                break;
-        }
-
-        throw new \OutOfRangeException('Unsupported modifier');
+        return match($modifierName) {
+            'crop' => new CropModifier(...$modifierArgs),
+            'resize' => new ResizeModifier(...$modifierArgs),
+            'blur' => new BlurModifier(...$modifierArgs),
+            default => throw new \OutOfRangeException('Unsupported modifier')
+        };
     }
 }
